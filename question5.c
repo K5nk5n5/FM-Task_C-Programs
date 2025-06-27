@@ -1,13 +1,19 @@
 #include <stdio.h>
 int main ()
 {
-    int a[50],n,i,j,k;
+    double a[50],n;
+    int i,j,k;
     printf ("Enter the number of elements:\n");
-    scanf ("%d",&n);
+    scanf ("%lf",&n);
+    if (n<=0||(int) n!=n)
+    {
+        printf ("Invalid input");
+        return 0;
+    }
     printf ("Enter the elements:\n");
     for (i=0;i<n;i++)
     {
-        scanf ("%d",&a[i]);
+        scanf ("%lf",&a[i]);
     }
     for (i=0;i<n;i++)
     {
@@ -27,7 +33,7 @@ int main ()
     printf ("The new array is:\n");
     for (i=0;i<n;i++)
     {
-        printf ("%d\t",a[i]);
+        printf ("%lf\t",a[i]);
     }
     return 0;
 }

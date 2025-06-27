@@ -4,6 +4,11 @@ int main ()
     int a[50],n,*p,i,temp;
     printf ("Enter the number of elements:\n");
     scanf ("%d",&n);
+    if (n<=0)
+    {
+        printf ("Invalid input");
+        return 0;
+    }
     printf ("Enter the elements:\n");
     for (i=0;i<n;i++)
     {

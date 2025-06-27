@@ -11,7 +11,7 @@ int main() {
 
     for (int i = 0; i < 3; i++) 
     {
-        printf("Enter password: ", i + 1);
+        printf("Enter password: ");
         fgets(inputPassword, sizeof(inputPassword), stdin);
         inputPassword[strcspn(inputPassword, "\n")] = '\0';
 
@@ -22,7 +22,8 @@ int main() {
         } 
         else 
         {
-            printf("Incorrect password.\n");
+            printf("Incorrect password. ");
+            printf ("%d attempt(s) left\n",(2-i));
         }
     }
     printf ("Too many failed attempts. Access denied.\n");

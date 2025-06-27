@@ -2,12 +2,19 @@
 #include <stdlib.h>
 #include <time.h>
 #include <ctype.h>
+#include <string.h>
 int main() 
 {
     char a[100];
     int i,vowel=0,consonant=0,length;
     printf("Enter a string: ");
-    scanf(" %[^\n]",a);
+    fgets (a,sizeof(a),stdin);
+    a[strcspn(a,"\n")]='\0';
+    if (a[0]=='\0')
+    {
+        printf ("Invalid input");
+        return 0;
+    }
     for (i=0;a[i]!='\0';i++) 
     {
         char ch=tolower(a[i]); 

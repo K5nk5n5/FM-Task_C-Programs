@@ -2,22 +2,59 @@
 int main ()
 {
     int a[50],n,i,j,temp;
+    char sort;
     printf ("Enter the number of elements:\n");
     scanf ("%d",&n);
+    if (n<=0)
+    {
+        printf ("Invalid input");
+        return 0;
+    }
     printf ("Enter the elements:\n");
     for (i=0;i<n;i++)
     {
         scanf ("%d",&a[i]);
     }
-    for (i=0;i<n-1;i++)
+    printf ("If you would like to use Bubble Sort, enter 'b', and if you would like to use Selection Sort, enter 's':\n");
+    getchar();
+    scanf ("%c",&sort);
+    if (sort!='b'&&sort!='s')
     {
-        for (j=0;j<n-i-1;j++)
+        printf ("Invalid input");
+        return 0;
+    }
+    if (sort=='b')
+    {
+        for (i=0;i<n-1;i++)
         {
-            if (a[j]>a[j+1])
+            for (j=0;j<n-i-1;j++)
             {
-                temp=a[j];
-                a[j]=a[j+1];
-                a[j+1]=temp;
+                if (a[j]>a[j+1])
+                {
+                    temp=a[j];
+                    a[j]=a[j+1];
+                    a[j+1]=temp;
+                }
+            }
+        }
+    }
+    if (sort=='s')
+    {
+        for (i=0;i<n-1;i++)
+        {
+            int min=i;
+            for (j=i+1;j<n;j++)
+            {
+                if (a[j]<a[min])
+                {
+                    min=j;
+                }
+            }
+            if (min!=i)
+            {
+                temp=a[i];
+                a[i]=a[min];
+                a[min]=temp;
             }
         }
     }

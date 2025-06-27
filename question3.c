@@ -1,9 +1,14 @@
 #include <stdio.h>
 int main()
 {
-    int units,sum;
+    double units,sum;
     printf ("Enter total units:\n");
-    scanf ("%d",&units);
+    scanf ("%lf",&units);
+    if (units<0)
+    {
+        printf ("Invalid input");
+        return 0;
+    }
     if (units<=100)
     {
         sum=units*5;
@@ -16,6 +21,6 @@ int main()
     {
         sum=(100*5)+(200*8)+((units-300)*10);
     }
-    printf ("The total electricity bill is : %d rs",sum);
+    printf ("The total electricity bill is : %.2f rs",sum);
     return 0;
 }
